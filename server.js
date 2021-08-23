@@ -21,7 +21,7 @@ let multer = require("multer")
 app.post("/api/fileanalyse", multer().single("upfile"), (req, res) => {
   console.log(req.file)
   let respObj = {}
-  respObj["name"] = req.file.fieldname
+  respObj["name"] = req.file.originalname
   respObj["type"] = req.file.mimetype
   respObj["size"] = req.file.size
   res.json(respObj)
